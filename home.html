@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- Material Design for Bootstrap fonts and icons -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+	<!-- Material Design for Bootstrap CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+	<!--Pagina de Estilo Externa-->
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+
+    <title>Hello, world!</title>
+	</head>
+	
+	<!--Corpo do Site-->
+	<body>
+		<form class="form" id="validacaoUsuario"> 
+			<div class="form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+				<label for="formGroupExampleInput" class="bmd-label-floating" id="formatarInputs">Nome</label>
+				<input id="tirarBorda" type="text" class="form-control" id="nomeValidacao">
+			</div>
+			<div class="form-group">
+			  <label for="exampleInputEmail1" class="bmd-label-floating" id="formatarInputs">CPF</label>
+			  <input id="tirarBorda" type="number" class="form-control" id="cpfValidacao">
+			</div>
+			<div style="text-align: center !important;">
+				<button type="button" class="btn btn-secondary btn-raised" data-toggle="modal" data-target="#exampleModal">Cadastrar-se</button>
+				<button type="submit" class="btn btn-primary btn-raised">Acessar</button>
+			</div>
+		</form>
+
+		<!--Modal-->
+		<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+			  <div style="border-radius: 0.7em !important;" class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">TELA DE CADASTRO</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<form >
+						<div class="form-group bmd-form-group">
+						    <label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Nome *</label>
+						    <input id="tirarBorda" type="number" name="assunto" class="form-control" id="nome">
+						</div>
+						<div class="form-row">
+						  <div class="form-group col-md-6">
+						    <label for="exampleInputEmail2" class="bmd-label-floating" style="color: black;">CPF *</label>
+						    <input id="tirarBorda" type="number" name="email" class="form-control" id="cpf">
+						  </div>
+						  <div class="form-group col-md-6">
+						    <label for="exampleInputName2" class="bmd-label-floating" style="color: black">Telefone *</label>
+						    <input id="tirarBorda" type="number" name="name" class="form-control" id="telefone">
+						  </div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+							  <label for="exampleInputEmail2" class="bmd-label-floating" style="color: black;">E-mail *</label>
+							  <input id="tirarBorda" type="text" name="email" class="form-control" id="email">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="exampleInputName2" class="bmd-label-floating" style="color: black">Bairro *</label>
+								<input id="tirarBorda" type="text" name="name" class="form-control" id="bairro">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+							  <label for="exampleInputName2" class="bmd-label-floating" style="color: black">Rua *</label>
+							  <input id="tirarBorda" type="text" name="name" class="form-control" id="rua">
+							</div>
+							<div class="form-group col-md-6">
+							  <label for="exampleInputEmail2" class="bmd-label-floating" style="color: black;">Numero *</label>
+							  <input id="tirarBorda" type="number" name="email" class="form-control" id="numero">
+							</div>
+						</div>
+						<div align="center">
+							<button type="button" class="btn btn-danger btn-raised" data-dismiss="modal">Sair</button>
+							<button type="button" class="btn btn-secondary btn-raised">Cadastrar</button>
+						</div>
+					</form>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+
+
+	<!-- <form id="form">
+		<input type="text" id="nome" placeholder="Nome">
+		<input type="text" id="cpf" placeholder="Cpf">
+		<input type="number" id="celular" placeholder="Celular">
+		<input type="text" id="email" placeholder="Email">		
+		<input type="text" id="bairro" placeholder="Bairro">
+		<input type="text" id="rua" placeholder="Rua">
+		<input type="number" id="numero" placeholder="Numero">		
+		<button>Cadastrar</button>
+	</form> -->
+
+	<script type="text/javascript" src="validacaoUsuario.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+</body>
+</html>

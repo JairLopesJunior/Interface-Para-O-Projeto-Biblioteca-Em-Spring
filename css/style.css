@@ -1,0 +1,27 @@
+body{
+    background-color: white;
+    background-size: cover;
+    left: 50%; 
+    margin: -130px 0 0 -210px; 
+    padding:10px;
+    position: absolute; 
+    top: 50%;
+}
+
+.form{
+    margin: 0 auto;
+    width: 400px;
+    /* Para ver as bordas do formulário */
+    padding: 1em;
+    border: 2px solid black;
+    border-radius: 1em;
+    box-shadow: 10px 10px 5px grey;
+}
+
+#tirarBorda{
+    box-shadow: 0 0 0 0;
+}
+
+#formatarInputs{
+    color: black !important;
+}
