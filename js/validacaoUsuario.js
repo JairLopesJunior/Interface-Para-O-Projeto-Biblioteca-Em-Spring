@@ -1,15 +1,16 @@
-let nome = document.querySelector("#nomeValidacao");
+let email = document.querySelector("#emailValidacao");
 let cpf = document.querySelector("#cpfValidacao");
+let form = document.querySelector("#validacaoUsuario");
 
 form.addEventListener("submit", function(event){
 	event.preventDefault();
 
 	let dados = {
-		nome: nome.value,
+		email: email.value,
 		cpf: cpf.value
 	};
 
-	fetch('https://aw-api-biblioteca.herokuapp.com/api', {
+	fetch('http://localhost:8080/api', {
 		method: 'POST',
 		supportHeaderParams: true,
 		headers: {
@@ -22,7 +23,13 @@ form.addEventListener("submit", function(event){
 		return response
 	})
 	.then(function(response) {
-		alert("Usuário cadastrado com sucesso.")
+		if(!response.ok){
+			throw Error(response.statusText);
+		}else{
+			alert("Login efetuado com sucesso.")
+			window.location.href = "usuario.html";
+		}
 	})
+	.catch(e => alert("Email ou CPF inválido."))
 })
 

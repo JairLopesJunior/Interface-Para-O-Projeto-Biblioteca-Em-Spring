@@ -1,5 +1,6 @@
 body{
-    background-color: white;
+    background:  url('../img/fundo.png') no-repeat top center fixed, url('../img/duke.png') no-repeat right bottom fixed !important;
+    /* background-color: white; */
     background-size: cover;
     left: 50%; 
     margin: -130px 0 0 -210px; 
@@ -14,12 +15,13 @@ body{
     /* Para ver as bordas do formulário */
     padding: 1em;
     border: 2px solid black;
+	;
     border-radius: 1em;
-    box-shadow: 10px 10px 5px grey;
+    box-shadow: 5px 5px 2px black;
 }
 
-#tirarBorda{
-    box-shadow: 0 0 0 0;
+input{
+    box-shadow: 0 0 0 0 !important;
 }
 
 #formatarInputs{
