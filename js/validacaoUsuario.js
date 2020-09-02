@@ -1,33 +1,39 @@
-let email = document.querySelector("#emailValidacao");
-let cpf = document.querySelector("#cpfValidacao");
-let form = document.querySelector("#validacaoUsuario");
+let emailValidacao = document.querySelector("#emailValidacao");
+let cpfValidacao = document.querySelector("#cpfValidacao");
+let forma = document.querySelector("#validacaoUsuario");
 
-form.addEventListener("submit", function(event){
+forma.addEventListener("submit", function(event){
 	event.preventDefault();
 
-	let dados = {
-		email: email.value,
-		cpf: cpf.value
+	let dadosa = {
+		email: emailValidacao.value,
+		cpf: cpfValidacao.value
 	};
 
-	fetch('http://localhost:8080/api', {
+	fetch('https://aw-api-biblioteca.herokuapp.com/api', {
 		method: 'POST',
 		supportHeaderParams: true,
 		headers: {
     		'Accept': 'application/json',
         	'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(dados)
+		body: JSON.stringify(dadosa)
 	})
 	.then(function(response) {
 		return response
 	})
 	.then(function(response) {
-		if(!response.ok){
-			throw Error(response.statusText);
+		if(emailValidacao.value == null || emailValidacao.value == ""){
+			alert("Email inválido, por favor informe novamente.")
+		}else if(cpf.value == null || cpf.value == ""){
+			alert("CPF inválido, por favor informe novamente.")
 		}else{
-			alert("Login efetuado com sucesso.")
-			window.location.href = "usuario.html";
+			if(!response.ok){
+				throw Error(response.statusText);
+			}else{
+				alert("Login efetuado com sucesso.")
+				window.location.href = "usuario.html";
+			}
 		}
 	})
 	.catch(e => alert("Email ou CPF inválido."))

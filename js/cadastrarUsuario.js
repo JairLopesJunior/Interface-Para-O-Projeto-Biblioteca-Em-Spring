@@ -1,6 +1,6 @@
 let nome = document.querySelector("#nomeInformado");
 let cpf = document.querySelector("#cpfInformado");
-let telefone = document.querySelector("#telefoneInformado");
+let celular = document.querySelector("#celularInformado");
 let email = document.querySelector("#emailInformado");
 let bairro = document.querySelector("#bairroInformado");
 let rua = document.querySelector("#ruaInformado");
@@ -13,14 +13,14 @@ form.addEventListener("submit", function(event){
     let dados = {
 		nome: nome.value,
         cpf: cpf.value,
-        telefone: telefone.value,
+        celular: celular.value,
         email: email.value,
         bairro: bairro.value,
         rua: rua.value,
         numero: numero.value
     };
 
-	fetch('http://localhost:8080/api/clientes', {
+	fetch('https://aw-api-biblioteca.herokuapp.com/api/clientes', {
 		method: 'POST',
 		supportHeaderParams: true,
 		headers: {
@@ -33,11 +33,24 @@ form.addEventListener("submit", function(event){
 		return response
 	})
 	.then(function(response) {
-		if(!response.ok){
-			throw Error(response.statusText);
+		if(nome.value == null || nome.value == ""){
+			alert("Por favor, informe o campo Nome.")
+		}else if(cpf.value == null || cpf.value == ""){
+			alert("Por favor, informe o campo CPF.")
+		}else if(celular.value == null || celular.value == ""){
+			alert("Por favor, informe o campo Telefone.")
+		}else if(bairro.value == null || bairro.value == ""){
+			alert("Por favor, informe o campo Bairro.")
+		}else if(rua.value == null || rua.value == ""){
+			alert("Por favor, informe o campo Rua.")
+		}else if(numero.value == null || numero.value == ""){
+			alert("Por favor, informe o campo Numero.")
 		}else{
-			alert("Usuário cadastrado com sucesso.")
-			window.location.href = "home.html";
+			if(!response.ok){
+				throw Error(response.statusText);
+			}else{
+				alert("Usuário cadastrado com sucesso.")
+			}
 		}
 	})
 	.catch(e => alert("Dados incorretos, por favor informe corretamente."))

@@ -27,17 +27,18 @@
 		<form class="form" id="validacaoUsuario"> 
 			<div class="form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
 				<label for="formGroupExampleInput" class="bmd-label-floating" id="formatarInputs">Email *</label>
-				<input type="email" class="form-control" id="emailValidacao">
+				<input type="email" class="form-control" id="emailValidacao" maxlength="40">
 			</div>
 			<div class="form-group">
 			  <label for="exampleInputEmail1" class="bmd-label-floating" id="formatarInputs">CPF *</label>
-			  <input type="text" class="form-control" id="cpfValidacao">
+			  <input type="text" onkeypress="$(this).mask('000.000.000-00');" class="form-control" id="cpfValidacao">
 			</div>
 			<div style="text-align: center !important;">
 				<button type="button" class="btn btn-secondary btn-raised" data-toggle="modal" data-target="#exampleModal">Cadastrar-se</button>
-				<button type="submit" class="btn btn-primary btn-raised">Acessar</button>
+				<button onclick="myFunction()" type="submit" class="btn btn-primary btn-raised">Acessar</button>
 			</div>
 		</form>
+
 
 		<!--Modal-->
 		<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,36 +54,36 @@
 					<form id="cadastrarUsuario">
 						<div class="form-group bmd-form-group">
 						    <label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Nome *</label>
-						    <input type="text" class="form-control" id="nomeInformado">
+						    <input type="text" class="form-control" id="nomeInformado" maxlength="40">
 						</div>
 						<div class="form-row">
 						  <div class="form-group col-md-6">
 						    <label for="exampleInputEmail2" class="bmd-label-floating" style="color: black;">CPF *</label>
-						    <input type="text"class="form-control" id="cpfInformado">
+						    <input type="text"class="form-control" id="cpfInformado" onkeypress="$(this).mask('000.000.000-00');">
 						  </div>
 						  <div class="form-group col-md-6">
-						    <label for="exampleInputName2" class="bmd-label-floating" style="color: black">Telefone *</label>
-						    <input type="number" class="form-control" id="telefoneInformado">
+							<label for="exampleInputEmail2" class="bmd-label-floating" style="color: black;">Telefone *</label>
+							<input class="form-control" id="celularInformado" onkeypress="$(this).mask('(00) 0000-00009')">
 						  </div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 							  <label for="exampleInputEmail2" class="bmd-label-floating" style="color: black;">E-mail *</label>
-							  <input type="text" class="form-control" id="emailInformado">
+							  <input type="email" class="form-control" id="emailInformado" maxlength="40">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="exampleInputName2" class="bmd-label-floating" style="color: black">Bairro *</label>
-								<input type="text" class="form-control" id="bairroInformado">
+								<input type="text" class="form-control" id="bairroInformado" maxlength="30">
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 							  <label for="exampleInputName2" class="bmd-label-floating" style="color: black">Rua *</label>
-							  <input type="text" class="form-control" id="ruaInformado">
+							  <input type="text" class="form-control" id="ruaInformado" maxlength="30">
 							</div>
 							<div class="form-group col-md-6">
 							  <label for="exampleInputEmail2" class="bmd-label-floating" style="color: black;">Numero *</label>
-							  <input type="number" class="form-control" id="numeroInformado">
+							  <input type="number" class="form-control" id="numeroInformado" maxlength="8">
 							</div>
 						</div>
 						<div align="center">
@@ -95,6 +96,7 @@
 			</div>
 		</div>
 
+	<script type="text/javascript" src="js/validacaoUsuario.js"></script>
 	<script type="text/javascript" src="js/cadastrarUsuario.js"></script>
 
     <!-- Optional JavaScript -->
@@ -106,6 +108,9 @@
 	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
 	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+	
+	<!--Validação das Mascaras-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
 </body>
 </html>
