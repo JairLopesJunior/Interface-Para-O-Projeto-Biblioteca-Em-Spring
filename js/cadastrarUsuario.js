@@ -18,41 +18,43 @@ form.addEventListener("submit", function(event){
         bairro: bairro.value,
         rua: rua.value,
         numero: numero.value
-    };
-
-	fetch('https://aw-api-biblioteca.herokuapp.com/api/clientes', {
-		method: 'POST',
-		supportHeaderParams: true,
-		headers: {
-    		'Accept': 'application/json',
-        	'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(dados)
-	})
-	.then(function(response) {
-		return response
-	})
-	.then(function(response) {
-		if(nome.value == null || nome.value == ""){
-			alert("Por favor, informe o campo Nome.")
-		}else if(cpf.value == null || cpf.value == ""){
-			alert("Por favor, informe o campo CPF.")
-		}else if(celular.value == null || celular.value == ""){
-			alert("Por favor, informe o campo Telefone.")
-		}else if(bairro.value == null || bairro.value == ""){
-			alert("Por favor, informe o campo Bairro.")
-		}else if(rua.value == null || rua.value == ""){
-			alert("Por favor, informe o campo Rua.")
-		}else if(numero.value == null || numero.value == ""){
-			alert("Por favor, informe o campo Numero.")
-		}else{
+	};
+	
+	if(nome.value == null || nome.value == ""){
+		alert("Por favor, informe o campo Nome.")
+	}else if(cpf.value == null || cpf.value == ""){
+		alert("Por favor, informe o campo CPF.")
+	}else if(email.value == null || email.value == ""){
+		alert("Por favor, informe o campo Email.")
+	}else if(celular.value == null || celular.value == ""){
+		alert("Por favor, informe o campo Telefone.")
+	}else if(bairro.value == null || bairro.value == ""){
+		alert("Por favor, informe o campo Bairro.")
+	}else if(rua.value == null || rua.value == ""){
+		alert("Por favor, informe o campo Rua.")
+	}else if(numero.value == null || numero.value == ""){
+		alert("Por favor, informe o campo Numero.")
+	}else{
+		fetch('https://aw-api-biblioteca.herokuapp.com/api/clientes', {
+			method: 'POST',
+			supportHeaderParams: true,
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(dados)
+		})
+		.then(function(response) {
+			return response
+		})
+		.then(function(response) {
 			if(!response.ok){
 				throw Error(response.statusText);
 			}else{
 				alert("Usuário cadastrado com sucesso.")
 			}
-		}
-	})
-	.catch(e => alert("Dados incorretos, por favor informe corretamente."))
+		})
+		.catch(e => alert("Dados incorretos, por favor informe corretamente."))
+	}
 })
 
