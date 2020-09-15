@@ -40,7 +40,7 @@
           }
      </style>
 
-     <body>
+     <body onload="myFunction()">
 
           <form id="cadastrarLivro" style="margin: 30px 30px 0 30px;">
                <fieldset>
@@ -75,38 +75,81 @@
                     </div>
                </fieldset>
           </form>
-
-      <!-- <button id="btn">Load Users</button>
       
-      <ul id="list">
+      <ul id="list" style="margin-top: 20px;">
+      	 <div class="row">
+      		<div class="col-md-2"><b>Titulo</b></div>
+      		<div class="col-md-2"><b>Autor</b></div>
+      		<div class="col-md-2"><b>Editora</b></div>
+      		<div class="col-md-2"><b>Ano de Públicação</b></div>
+      		<div class="col-md-2"><b>Genero</b></div>
+      	</div>
            <li class="item">
            </li>
       </ul>
 
      <script type="text/javascript">
           let btn = document.querySelector("#btn");
-          let list = document.querySelector("#list");
-     
-          btn.addEventListener('click', function(){
-               fetch('https://aw-api-biblioteca.herokuapp.com/api/13/livros')
-               .then(function (response) {
-                    return response.json()
-               })
-               .then(function (response) {
-                    response.data.forEach(function (tb_livros) {
-                         let item = document.createElement("li");
-                         
-                         item.classList.add("item");
-                         
-                         item.innerHTML = '<span>'+tb_livros.nome+'</span>';
-                         list.appendChild(item);
-                    });
-               })
-          });
-     </script> -->
+     		let list = document.querySelector("#list");
 
-     <script type="text/javascript" src="js/validacaoUsuario.js"></script>
-     <script type="text/javascript" src="js/cadastrarLivro.js"></script>
+     		function myFunction() {
+
+     		fetch('http://localhost:8080/api/13/livros', {
+          	method: 'GET',
+			supportHeaderParams: true,
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			}
+          	})
+    		.then(response => response.json())
+		    .then(data => {
+		        data.forEach(function (tb_users) {
+                   let item = document.createElement("li");
+                   
+                   item.classList.add("item");
+                   
+                   item.innerHTML = '<div class="col-md-2">'+tb_users.titulo+'</div>'+
+                   					'<div class="col-md-2">'+tb_users.autor+'</div>'+
+                   					'<div class="col-md-2">'+tb_users.editora+'</div>'+
+                   					'<div class="col-md-2">'+tb_users.anoPublicacao+'</div>'+
+                   					'<div class="col-md-2">'+tb_users.genero+'</div>';
+
+                   list.appendChild(item);
+               });
+    		});
+    		};
+
+   //   	btn.addEventListener('click', function(){
+   //   	  debugger;
+   //        fetch('http://localhost:8080/api/13/livros', {
+   //        	method: 'GET',
+			// supportHeaderParams: true,
+			// headers: {
+			// 	'Accept': 'application/json',
+			// 	'Content-Type': 'application/json'
+			// }
+   //        })
+   //        .then(function (response) {
+   //             return response.json()
+   //        })
+   //        .then(function (response) {
+   //        	alert(response.response)
+   //             response.data.forEach(function (tb_users) {
+   //                 let item = document.createElement("li");
+                   
+   //                 item.classList.add("item");
+                   
+   //                 item.innerHTML = '<span>'+tb_users.nome+'</span>';
+
+   //                 list.appendChild(item);
+   //             });
+   //        })
+   //   });
+     </script>
+
+   <!--   <script type="text/javascript" src="js/validacaoUsuario.js"></script>
+     <script type="text/javascript" src="js/cadastrarLivro.js"></script> -->
 
      <!-- Optional JavaScript -->
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
