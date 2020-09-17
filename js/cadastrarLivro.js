@@ -16,7 +16,7 @@ form.addEventListener("submit", function(event){
         genero: genero.value
     };
 
-	fetch(idUsuario, {
+	fetch('http://localhost:8080/api/cliente/13', {
 		method: 'POST',
 		supportHeaderParams: true,
 		headers: {
@@ -33,6 +33,7 @@ form.addEventListener("submit", function(event){
 			throw Error(response.statusText);
 		}else{
 			alert("Livro cadastrado com sucesso.")
+			document.location.reload(true);
 		}
 	})
 	.catch(e => alert("Dados incorretos, por favor informe corretamente."))

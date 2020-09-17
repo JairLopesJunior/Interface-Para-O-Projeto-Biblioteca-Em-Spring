@@ -52,6 +52,7 @@ form.addEventListener("submit", function(event){
 				throw Error(response.statusText);
 			}else{
 				alert("Usuário cadastrado com sucesso.")
+				myFunction();
 			}
 		})
 		.catch(e => alert("Dados incorretos, por favor informe corretamente."))
