@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -95,7 +95,7 @@
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-			        <button onclick="validarDelete()" class="btn btn-danger">Deletar</button>
+			        <button id="buttonDelete" type="submit" class="btn btn-danger">Deletar</button>
 			      </div>
 			    </div>
 			  </div>
@@ -121,12 +121,11 @@
 	</main>
 
      <script type="text/javascript">
-          	let btn = document.querySelector("#btn");
      		let list = document.querySelector("#list");
 
      		function myFunction() {
 
-     		fetch('http://localhost:8080/api/13/livros', {
+     		fetch('http://localhost:8080/api/cliente/13/livros', {
           	method: 'GET',
 			supportHeaderParams: true,
 			headers: {
@@ -140,11 +139,13 @@
                    	let item = document.createElement("tr");
                    
                    item.classList.add("item");
+
+                   var str = new Date(tb_users.anoPublicacao).toLocaleString('pt-BR');
     
                    	item.innerHTML =	'<td>'+tb_users.titulo+'</td>' +
                    						'<td>'+tb_users.autor+'</td>' +
                    						'<td>'+tb_users.editora+'</td>' +
-                   						'<td>'+tb_users.anoPublicacao+'</td>' +
+                   						'<td>'+str.substr(0,10)+'</td>' +
                    						'<td>'+tb_users.genero+'</td>';
 
 		        	list.appendChild(item);
@@ -155,31 +156,36 @@
      </script>
 
      <script type="text/javascript">
-     	let tituloParaDeletar = document.getElementById("#tituloParaDeletar");
+     	let buttonDelete = document.querySelector("#buttonDelete");
+     	var tituloParaDeletar = document.querySelector("#tituloParaDeletar");
 
-    		function validarDelete() {
-    			fetch('http://localhost:8080/cliente/13/livros/'+tituloParaDeletar, {
-					method: 'POST',
-					supportHeaderParams: true,
-					headers: {
-			    		'Accept': 'application/json',
-			        	'Content-Type': 'application/json'
-					},
-					body: JSON.stringify(dados)
-				})
-				.then(function(response) {
-					return response
-				})
-				.then(function(response) {
-					if(!response.ok){
-						throw Error(response.statusText);
-					}else{
-						alert("Livro deletado com sucesso.")
-						document.location.reload(true);
-					}
-				})
-				.catch(e => alert("Dados incorretos, por favor informe corretamente."))
-    		}
+     	debugger;
+     	buttonDelete.addEventListener("click", function(event){
+
+			// event.preventDefault();
+
+			fetch('http://localhost:8080/api/cliente/13/livro/'+tituloParaDeletar.value, {
+				method: 'DELETE',
+				supportHeaderParams: true,
+				headers: {
+		    		'Accept': 'application/json',
+		        	'Content-Type': 'application/json'
+				}
+			})
+			.then(function(response) {
+				return response
+			})
+			.then(function(response) {
+				if(!response.ok){
+					throw Error(response.statusText);
+				}else{
+					alert("Livro deletado com sucesso.")
+					document.location.reload(true);
+				}
+			})
+			.catch(e => alert("Título incorreto, por favor informe corretamente."))
+		})
+
      </script>
 
      <script src="https://use.fontawesome.com/9275e65a6d.js"></script>
