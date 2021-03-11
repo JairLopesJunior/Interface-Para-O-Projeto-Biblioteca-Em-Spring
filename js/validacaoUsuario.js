@@ -5,7 +5,7 @@ var idUsuario;
 
 formV.addEventListener("submit", function(event){
 	event.preventDefault();
-
+	
 	let str = cpfV.value; 
 	let exp = /[0-9]/g;
 	let result = str.match(exp);
