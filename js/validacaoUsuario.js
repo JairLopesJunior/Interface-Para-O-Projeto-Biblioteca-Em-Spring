@@ -56,9 +56,6 @@ formV.addEventListener("submit", function(event){
 			if(!response.ok){
 				throw Error(response.statusText);
 			}else{
-				//const json1 = '{"message":{"success":true,"details":"Login efetuado com sucesso.","id":13}}';
-				//const obj = JSON.parse(json1);
-				//idUsuario = obj.message.id;
 				return response.json()
 			}
 		})
