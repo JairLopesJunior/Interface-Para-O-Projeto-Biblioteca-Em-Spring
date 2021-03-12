@@ -121,7 +121,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismissx="modal">Fechar</button>
-              <button onclick="carregarLivro()" type="submit" class="btn btn-danger">Carregar</button>
+              <button id="carregarLivro" type="submit" class="btn btn-danger">Carregar</button>
             </div>
           </div>
         </div>
@@ -237,49 +237,45 @@
 
      </script>
 
-     <script type="text/javascript">
+<!--     <script type="text/javascript">
       let list = document.querySelector("#list");
-      var tituloParaEditar = document.querySelector("#tituloParaEditar");
 
-        function carregarLivro() {
+      let carregarLivro = document.querySelector("#carregarLivro");
+      let t = document.querySelector("#tituloInformado");
 
-          fetch('http://localhost:8080/cliente/livro/'+tituloParaEditar.value, {
-            method: 'GET',
-            supportHeaderParams: true,
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            }
-          })
-          .then(response => response.json())
-          .then(data => {
-              data.forEach(function (tb_users) {
-                      let item = document.createElement("tr");
-                     
-                     item.classList.add("item");
+        carregarLivro.addEventListener("submit", function(event){
+          event.preventDefault();
 
-                     var str = new Date(tb_users.anoPublicacao).toLocaleString('pt-BR');
-      
-                      item.innerHTML =  '<td>'+tb_users.titulo+'</td>' +
-                                '<td>'+tb_users.autor+'</td>' +
-                                '<td>'+tb_users.editora+'</td>' +
-                                '<td>'+str.substr(0,10)+'</td>' +
-                                '<td>'+tb_users.genero+'</td>';
+        fetch('http://localhost:8080/cliente/livro/livros', {
+          method: 'GET',
+          supportHeaderParams: true,
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(function (tb_users) {
+                    
+                    document.querySelector("tituloInformado").innerHTML = tb_users.titulo
 
-                      document.getElementById('tituloInformado').value = tb_users.titulo;
-                      document.getElementById('autorInformado').value = tb_users.autor;
-                      document.getElementById('editoraInformado').value = tb_users.editora;
-                      document.getElementById('anoPublicacaoInformado').value = str.substr(0,10);
-                      document.getElementById('generoInformado').value = tb_users.genero;
+                   // var str = new Date(tb_users.anoPublicacao).toLocaleString('pt-BR');
+    
+                   //  item.innerHTML =  '<td>'+tb_users.titulo+'</td>' +
+                   //            '<td>'+tb_users.autor+'</td>' +
+                   //            '<td>'+tb_users.editora+'</td>' +
+                   //            '<td>'+str.substr(0,10)+'</td>' +
+                   //            '<td>'+tb_users.genero+'</td>';
 
-                list.appendChild(item);
-                 $('.modal').modal('hide'); 
+              // list.appendChild(item);
 
-                 });
-          });
+               });
+        });
+        .catch(e => alertError("Error."))
         };
 
-     </script>
+    </script> -->
 
      <script src="https://use.fontawesome.com/9275e65a6d.js"></script>
      <script type="text/javascript" src="../js/cadastrarLivro.js"></script>
