@@ -80,52 +80,52 @@
           </form>
 
           <!--Modal Delete-->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Informe o título do livro.</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group bmd-form-group">
-            <label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Título *</label>
-            <input type="text" class="form-control" id="tituloParaDeletar" maxlength="40">
-          </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button id="buttonDelete" type="submit" class="btn btn-danger">Deletar</button>
-            </div>
-          </div>
-        </div>
-      </div>
+	      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	        <div class="modal-dialog modal-dialog-centered" role="document">
+	          <div class="modal-content">
+	            <div class="modal-header">
+	              <h5 class="modal-title" id="exampleModalLongTitle">Informe o título do livro.</h5>
+	              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                <span aria-hidden="true">&times;</span>
+	              </button>
+	            </div>
+	            <div class="modal-body">
+	              <div class="form-group bmd-form-group">
+	            <label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Título *</label>
+	            <input type="text" class="form-control" id="tituloParaDeletar" maxlength="40">
+	          </div>
+	            </div>
+	            <div class="modal-footer">
+	              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+	              <button id="buttonDelete" type="submit" class="btn btn-danger">Deletar</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
 
-      <!--Modal Edit-->
-      <div class="modal fade" id="exampleModalCenterEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Informe o título do livro.</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group bmd-form-group">
-            <label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Título *</label>
-            <input type="text" class="form-control" id="tituloParaEditar" maxlength="40">
-          </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismissx="modal">Fechar</button>
-              <button id="carregarLivro" type="submit" class="btn btn-danger">Carregar</button>
-            </div>
-          </div>
-        </div>
-      </div>
+	    <!--Modal Edit-->
+	      <div class="modal fade" id="exampleModalCenterEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	        <div class="modal-dialog modal-dialog-centered" role="document">
+	          <div class="modal-content">
+	            <div class="modal-header">
+	              <h5 class="modal-title" id="exampleModalLongTitle">Informe o título do livro.</h5>
+	              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                <span aria-hidden="true">&times;</span>
+	              </button>
+	            </div>
+	            <div class="modal-body">
+	              <div class="form-group bmd-form-group">
+	            <label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Título *</label>
+	            <input type="text" class="form-control" id="tituloParaEditar" maxlength="40">
+	          </div>
+	            </div>
+	            <div class="modal-footer">
+	              <button type="button" class="btn btn-secondary" data-dismissx="modal">Fechar</button>
+	              <button id="carregarLivro" type="submit" class="btn btn-danger">Carregar</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
 
         <main style="margin: 30px">
 
@@ -152,13 +152,13 @@
         function myFunction() {
 
         fetch('http://localhost:8080/api/cliente/13/livros', {
-            method: 'GET',
-      supportHeaderParams: true,
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-            })
+          method: 'GET',
+	      supportHeaderParams: true,
+	      headers: {
+	        'Accept': 'application/json',
+	        'Content-Type': 'application/json'
+	      }
+        })
         .then(response => response.json())
         .then(data => {
             data.forEach(function (tb_users) {
@@ -181,7 +181,7 @@
         };
      </script>
 
-     <script type="text/javascript">
+    <!--  <script type="text/javascript">
       let buttonDelete = document.querySelector("#buttonDelete");
       var tituloParaDeletar = document.querySelector("#tituloParaDeletar");
 
@@ -208,7 +208,7 @@
         })
       }
 
-      fetch('http://localhost:8080/api/cliente/13/livro/'+tituloParaDeletar.value, {
+      fetch('http://localhost:8080/api/cliente/13/livros/'+tituloParaDeletar.value, {
         method: 'DELETE',
         supportHeaderParams: true,
         headers: {
@@ -235,35 +235,71 @@
       .catch(e => alertSucess("Título incorreto, por favor informe corretamente!!"))
     })
 
-     </script>
+     </script> -->
 
     <script type="text/javascript">
-      let list = document.querySelector("#list");
 
-      let carregarLivro = document.querySelector("#carregarLivro");
-      let t = document.querySelector("#tituloInformado");
+      	let carregarLivro = document.querySelector("#carregarLivro");
+      	let tituloParaEditar = document.querySelector("#tituloParaEditar");
+      	let tInformado = document.querySelector("#tituloInformado");
 
-        carregarLivro.addEventListener("submit", function(event){
-          event.preventDefault();
+    	carregarLivro.addEventListener("click", function(event){
 
-        fetch('http://localhost:8080/cliente/livro/livros', {
-          method: 'GET',
-          supportHeaderParams: true,
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(function (tb_users) {
-                    
-                    document.querySelector("tituloInformado").innerHTML = tb_users.titulo
+    		function alertSucess(msg){
+		        Swal.fire({
+		          type: "success",
+		          icon: "success",
+		          text: `${msg}`,
+		          showConfirmButton: false,
+		          timer: 2000
+		        });
+	     	}
 
-               });
-        });
-        .catch(e => alertError("Error."))
-        };
+	      	function alertError(msg){
+		        Swal.fire({
+		            type: "error",
+		            icon: "error",
+		            text: `${msg}`,
+		            showConfirmButton: false,
+		            timer: 2000
+		        })
+	      	}
+
+	        fetch('http://localhost:8080/api/cliente/13/livros/'+tituloParaEditar.value, {
+	        
+	          method: 'GET',
+	          supportHeaderParams: true,
+	          headers: {
+	            'Accept': 'application/json',
+	            'Content-Type': 'application/json'
+	          }
+	        })
+	        .then(response => response.json())
+	        .then(data => {
+	            
+		            $('#exampleModalCenterEdit').modal('hide');
+		            setTimeout(function(){ 
+		            	document.body.lastChild.remove();
+		          	}, 500);
+
+		            setTimeout(function(){ 
+		            	let dateComeco = data.anoPublicacao.substr(0, 8);
+		            	let dateFim = data.anoPublicacao.substr(9, 10);
+		            	dateFim = parseInt(dateFim) - 1;
+		            	dateFim = dateFim.toString()
+		            	if(dateFim.length == 1){
+		            		dateFim = "0"+dateFim;
+		            	}
+		          		document.querySelector("#tituloInformado").value = data.titulo;
+		          		document.querySelector("#autorInformado").value = data.autor;
+		          		document.querySelector("#editoraInformado").value = data.editora;
+		          		document.querySelector("#anoPublicacaoInformado").value = (dateComeco + dateFim);
+		          		document.querySelector("#generoInformado").value = data.genero;
+		          	}, 1000);
+	          	
+	        })
+	        .catch(e => alertError("Titulo incorreto, por favor informe corretamente!!"))
+     	});
 
     </script>
 
