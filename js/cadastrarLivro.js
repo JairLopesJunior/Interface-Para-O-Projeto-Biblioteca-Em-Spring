@@ -3,6 +3,7 @@ let autor = document.querySelector("#autorInformado");
 let editora = document.querySelector("#editoraInformado");
 let anoPublicacao = document.querySelector("#anoPublicacaoInformado");
 let genero = document.querySelector("#generoInformado");
+let id = document.querySelector("#idInformado");
 let form = document.querySelector("#cadastrarLivro");
 
 form.addEventListener("submit", function(event){
@@ -45,10 +46,11 @@ form.addEventListener("submit", function(event){
 	        autor: autor.value,
 	        editora: editora.value,
 	        anoPublicacao: anoPublicacao.value,
-	        genero: genero.value
+	        genero: genero.value,
+	        id: id.value
 	    };
 
-		fetch('http://localhost:8080/api/cliente/13', {
+		fetch('http://localhost:8080/api/cliente/13/livros/'+id.value, {
 			method: 'POST',
 			supportHeaderParams: true,
 			headers: {

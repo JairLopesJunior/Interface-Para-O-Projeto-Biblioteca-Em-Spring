@@ -48,8 +48,12 @@
                <fieldset style="border: 1px solid black; border-radius: 10px 10px 10px 10px !important;">
                     <legend style="text-align: center; border-radius: 10px 10px 10px 10px !important; width: 300px">Cadastro de Livros</legend>
                     <div class="form-group bmd-form-group">
-                    <label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Titulo *</label>
-                    <input type="text" class="form-control" id="tituloInformado">
+                    	<label for="id" style="color: black;" class="bmd-label-floating">ID *</label>
+                   		<input type="text" class="form-control" id="idInformado" disabled>
+                    </div>
+                    <div class="form-group bmd-form-group">
+                    	<label for="formGroupExampleInput2" style="color: black;" class="bmd-label-floating">Titulo *</label>
+                   		<input type="text" class="form-control" id="tituloInformado">
                     </div>
                     <div class="form-row">
                     <div class="form-group col-md-6">
@@ -295,6 +299,7 @@
 		          		document.querySelector("#editoraInformado").value = data.editora;
 		          		document.querySelector("#anoPublicacaoInformado").value = (dateComeco + dateFim);
 		          		document.querySelector("#generoInformado").value = data.genero;
+		          		document.querySelector("#idInformado").value = data.id;
 		          	}, 1000);
 	          	
 	        })
